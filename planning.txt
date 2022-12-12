@@ -1,0 +1,7 @@
+inputs (multiple rows):
+    - overtime hours (2 fields, hours and minutes)
+    - bonus amount
+
+1. table looks up coeff based on overtime hours and minutes (in decimal form)
+2. multiply bonus by coeff
+3. that's the answer
