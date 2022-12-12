@@ -114,9 +114,19 @@ function App() {
         </tbody>
       </table>
 
-      <p className="font-bold text-xl">
+      <p className="font-bold text-xl mb-5">
         Total backwages: ${totalBackwage.toFixed(2)}
       </p>
+
+      <button
+        className="bg-sky-400 px-5 py-1 rounded-md h-fit"
+        onClick={() => {
+          setItems([]);
+          setTotalBackwage(0);
+        }}
+      >
+        Reset
+      </button>
     </div>
   );
 }
