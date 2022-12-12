@@ -37,6 +37,10 @@ function App() {
     setTotalBackwage(totalBackwage + parseFloat(result));
 
     document.getElementById("form").reset();
+
+    setOtHours(0);
+    setOtMinutes(0);
+    setBonus(0);
   }
 
   return (
@@ -48,6 +52,17 @@ function App() {
         id="form"
       >
         <div className="flex flex-col space-y-1">
+          <label htmlFor="bonus">Bonus</label>
+          <input
+            type="number"
+            name="bonus"
+            id="bonus"
+            step={0.01}
+            onChange={(e) => setBonus(parseFloat(e.target.value))}
+            className="border-2 rounded-md px-2 w-32"
+          />
+        </div>
+        <div className="flex flex-col space-y-1">
           <label htmlFor="otHours">OT Hours</label>
           <input
             type="number"
@@ -56,7 +71,6 @@ function App() {
             min={0}
             max={45}
             onChange={(e) => setOtHours(parseInt(e.target.value))}
-            placeholder="13"
             className="border-2 rounded-md px-2 w-32"
           />
         </div>
@@ -69,26 +83,13 @@ function App() {
             min={0}
             max={59}
             onChange={(e) => setOtMinutes(parseInt(e.target.value))}
-            placeholder="27"
-            className="border-2 rounded-md px-2 w-32"
-          />
-        </div>
-        <div className="flex flex-col space-y-1">
-          <label htmlFor="bonus">Bonus</label>
-          <input
-            type="number"
-            name="bonus"
-            id="bonus"
-            placeholder="200"
-            step={0.01}
-            onChange={(e) => setBonus(parseFloat(e.target.value))}
             className="border-2 rounded-md px-2 w-32"
           />
         </div>
         <button className="bg-sky-400 px-5 py-1 rounded-md h-fit">Add</button>
       </form>
 
-      <table className="bg-sky-400 mb-5 rounded-md">
+      <table className="bg-sky-400 mb-5 rounded-md border border-separate">
         <thead>
           <tr>
             <th className="py-3 px-6">Hours</th>
@@ -98,15 +99,15 @@ function App() {
             <th className="py-3 px-6">Backwage</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="bg-white border-sky-400">
           {items.map((item, i) => {
             return (
               <tr key={i} className="text-center">
-                <td className="pb-3">{item.hours}</td>
-                <td className="pb-3">{item.minutes}</td>
-                <td className="pb-3">${item.bonus.toFixed(2)}</td>
-                <td className="pb-3">{item.coeff}</td>
-                <td className="pb-3">${item.result}</td>
+                <td className="py-2">{item.hours}</td>
+                <td className="py-2">{item.minutes}</td>
+                <td className="py-2">${item.bonus.toFixed(2)}</td>
+                <td className="py-2">{item.coeff}</td>
+                <td className="py-2">${item.result}</td>
               </tr>
             );
           })}
