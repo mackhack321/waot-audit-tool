@@ -92,9 +92,10 @@ function App() {
       <table className="bg-sky-400 mb-5 rounded-md border border-separate">
         <thead>
           <tr>
-            <th className="py-3 px-6">Hours</th>
-            <th className="py-3 px-6">Minutes</th>
             <th className="py-3 px-6">Bonus</th>
+            <th className="py-3 px-6">OT Hours</th>
+            <th className="py-3 px-6">OT Minutes</th>
+            <th className="py-3 px-6">OT Minutes (decimal)</th>
             <th className="py-3 px-6">Coefficient</th>
             <th className="py-3 px-6">Backwage</th>
           </tr>
@@ -103,9 +104,10 @@ function App() {
           {items.map((item, i) => {
             return (
               <tr key={i} className="text-center">
+                <td className="py-2">${item.bonus.toFixed(2)}</td>
                 <td className="py-2">{item.hours}</td>
                 <td className="py-2">{item.minutes}</td>
-                <td className="py-2">${item.bonus.toFixed(2)}</td>
+                <td className="py-2">{(item.minutes / 60).toFixed(2)}</td>
                 <td className="py-2">{item.coeff}</td>
                 <td className="py-2">${item.result}</td>
               </tr>
