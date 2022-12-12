@@ -21,7 +21,6 @@ function App() {
     e.preventDefault();
 
     const coeff = getCoeff(otHours + otMinutes / 60);
-    console.log(coeff * bonus);
     const result = (coeff * bonus).toFixed(2);
 
     setItems((current) => [
