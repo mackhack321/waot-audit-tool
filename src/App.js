@@ -20,15 +20,15 @@ function App() {
   function getResult(e) {
     e.preventDefault();
 
-    const coeff = getCoeff(otHours + otMinutes / 60);
-    const result = (coeff * bonus).toFixed(2);
+    const coeff = getCoeff(parseInt(otHours) + parseInt(otMinutes) / 60);
+    const result = (coeff * parseFloat(bonus)).toFixed(2);
 
     setItems((current) => [
       ...current,
       {
-        hours: otHours,
-        minutes: otMinutes,
-        bonus: bonus,
+        hours: parseInt(otHours),
+        minutes: parseInt(otMinutes),
+        bonus: parseFloat(bonus),
         coeff: coeff,
         result: result,
       },
@@ -57,7 +57,7 @@ function App() {
             name="bonus"
             id="bonus"
             step={0.01}
-            onChange={(e) => setBonus(parseFloat(e.target.value))}
+            onChange={(e) => setBonus(e.target.value)}
             className="border-2 rounded-md px-2 w-32"
           />
         </div>
@@ -69,7 +69,7 @@ function App() {
             id="otHours"
             min={0}
             max={45}
-            onChange={(e) => setOtHours(parseInt(e.target.value))}
+            onChange={(e) => setOtHours(e.target.value)}
             className="border-2 rounded-md px-2 w-32"
           />
         </div>
@@ -81,7 +81,7 @@ function App() {
             id="otMinutes"
             min={0}
             max={59}
-            onChange={(e) => setOtMinutes(parseInt(e.target.value))}
+            onChange={(e) => setOtMinutes(e.target.value)}
             className="border-2 rounded-md px-2 w-32"
           />
         </div>
