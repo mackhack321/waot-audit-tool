@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { coefficients } from "./coefficients";
 
 function App() {
-  const [otHours, setOtHours] = useState(0);
-  const [otMinutes, setOtMinutes] = useState(0);
-  const [bonus, setBonus] = useState(0);
+  const [otHours, setOtHours] = useState("");
+  const [otMinutes, setOtMinutes] = useState("");
+  const [bonus, setBonus] = useState("");
   const [items, setItems] = useState([]);
   const [totalBackwage, setTotalBackwage] = useState(0);
 
@@ -37,9 +37,9 @@ function App() {
 
     document.getElementById("form").reset();
 
-    setOtHours(0);
-    setOtMinutes(0);
-    setBonus(0);
+    setOtHours("");
+    setOtMinutes("");
+    setBonus("");
   }
 
   return (
@@ -53,10 +53,11 @@ function App() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="bonus">Bonus</label>
           <input
-            type="number"
+            type="text"
             name="bonus"
             id="bonus"
-            step={0.01}
+            autoComplete="off"
+            value={bonus}
             onChange={(e) => setBonus(e.target.value)}
             className="border-2 rounded-md px-2 w-32"
           />
@@ -64,11 +65,11 @@ function App() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="otHours">OT Hours</label>
           <input
-            type="number"
+            type="text"
             name="otHours"
             id="otHours"
-            min={0}
-            max={45}
+            autoComplete="off"
+            value={otHours}
             onChange={(e) => setOtHours(e.target.value)}
             className="border-2 rounded-md px-2 w-32"
           />
@@ -76,11 +77,11 @@ function App() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="otMinutes">OT Minutes</label>
           <input
-            type="number"
+            type="text"
             name="otMinutes"
             id="otMinutes"
-            min={0}
-            max={59}
+            autoComplete="off"
+            value={otMinutes}
             onChange={(e) => setOtMinutes(e.target.value)}
             className="border-2 rounded-md px-2 w-32"
           />
