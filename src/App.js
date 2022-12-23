@@ -101,18 +101,21 @@ function App() {
           </tr>
         </thead>
         <tbody className="bg-white border-sky-400">
-          {items.map((item, i) => {
-            return (
-              <tr key={i} className="text-center">
-                <td className="py-2">${item.bonus.toFixed(2)}</td>
-                <td className="py-2">{item.hours}</td>
-                <td className="py-2">{item.minutes}</td>
-                <td className="py-2">{(item.minutes / 60).toFixed(2)}</td>
-                <td className="py-2">{item.coeff}</td>
-                <td className="py-2">${item.result}</td>
-              </tr>
-            );
-          })}
+          {items
+            .slice(0)
+            .reverse()
+            .map((item, i) => {
+              return (
+                <tr key={i} className="text-center">
+                  <td className="py-2">${item.bonus.toFixed(2)}</td>
+                  <td className="py-2">{item.hours}</td>
+                  <td className="py-2">{item.minutes}</td>
+                  <td className="py-2">{(item.minutes / 60).toFixed(2)}</td>
+                  <td className="py-2">{item.coeff}</td>
+                  <td className="py-2">${item.result}</td>
+                </tr>
+              );
+            })}
         </tbody>
       </table>
 
