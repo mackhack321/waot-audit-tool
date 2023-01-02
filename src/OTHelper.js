@@ -19,7 +19,7 @@ export default function OTHelper() {
       hours += parseInt(row.hours);
     });
 
-    while (minutes > 60) {
+    while (minutes >= 60) {
       hours += Math.floor(minutes / 60);
       minutes = minutes % 60;
     }
