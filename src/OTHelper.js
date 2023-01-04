@@ -47,6 +47,7 @@ export default function OTHelper() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="hours">Hours</label>
           <input
+            required
             type="text"
             name="hours"
             id="hours"
@@ -59,6 +60,7 @@ export default function OTHelper() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="minutes">Minutes</label>
           <input
+            required
             type="text"
             name="minutes"
             id="minutes"

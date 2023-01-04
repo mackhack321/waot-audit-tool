@@ -78,6 +78,7 @@ function WAOTTool() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="bonus">Bonus</label>
           <input
+            required
             type="text"
             name="bonus"
             id="bonus"
@@ -90,6 +91,7 @@ function WAOTTool() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="otHours">OT Hours</label>
           <input
+            required
             type="text"
             name="otHours"
             id="otHours"
@@ -102,6 +104,7 @@ function WAOTTool() {
         <div className="flex flex-col space-y-1">
           <label htmlFor="otMinutes">OT Minutes</label>
           <input
+            required
             type="text"
             name="otMinutes"
             id="otMinutes"
